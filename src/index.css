@@ -1,0 +1,61 @@
+*, *::before, *::after {
+ box-sizing: border-box;
+font-family:'Roboto', sans-serif;
+margin:0; 
+}
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.menu-category {
+  margin: 20px;
+}
+
+h2 {
+  color: #333;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.item-name {
+  flex: 1;
+}
+
+.item-price {
+  min-width: 80px;
+  text-align: right;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+background-color: #333;
+width: 17px;
+}
+::-webkit-scrollbar-thumb {
+background-color: #aaaaaa;
+border: 3.2px solid #333;
+}
+::-webkit-scrollbar-thumb:hover {
+background-color: #777;
+}
