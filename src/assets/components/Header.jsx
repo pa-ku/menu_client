@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import NavDesktop from "./NavDesktop";
-import SearchBar from "./SearchBar";
+import SearchBar from "./ui/SearchBar";
+
+
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -67,7 +69,7 @@ bottom: 0px;
 padding-inline: 10px;
 }
 `;
-export default function Header({ setQuery,setSelectCategory }) {
+export default function Header({ setQuery, setSelectCategory }) {
   return (
     <HeaderContainer>
       <TitleCtn>

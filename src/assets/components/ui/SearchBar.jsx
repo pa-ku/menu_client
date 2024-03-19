@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import searchIcon from "../images/search.svg";
+import searchIcon from "../../../assets/images/search.svg";
 
 const Input = styled.input`
   background-color: #444;
@@ -41,8 +41,9 @@ export default function SearchBar({ setQuery }) {
   return (
     <>
       <SearchContainer>
-        <SearchIcon src={searchIcon} alt="" />
-        <Input onChange={(e)=> setQuery(e.target.value)} type="text" placeholder="Buscar" />
+        <SearchIcon src={searchIcon} alt="icono de busqueda" />
+        <Input onChange={(e) => setQuery(e.target.value)} type="text" placeholder="Buscar" />
       </SearchContainer>
     </>
-  )}
+  )
+}

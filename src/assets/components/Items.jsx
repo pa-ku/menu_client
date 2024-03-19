@@ -9,11 +9,11 @@ import Button from "./ui/Button";
 const ItemsWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   flex-direction: column;
 opacity: 0;
 animation: 1s opacity forwards;
-
+min-height: 700px;
 @keyframes opacity {
   to{
     opacity: 1;

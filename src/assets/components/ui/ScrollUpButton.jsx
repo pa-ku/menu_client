@@ -15,11 +15,12 @@ const Button = styled.button`
   background-color: rgba(255, 255, 255, 0);
   border: 0px;
   animation:400ms buttonPopUp ;
-
   & span{
     position: absolute;
     font-size: 15px;
-bottom: -10px;
+  }
+  &:hover{
+    color: #ececec;
   }
   @keyframes buttonPopUp {
     0%{
@@ -53,7 +54,7 @@ export default function ScrollUpButton() {
       {scrollButton && (
         <Button title="Inicio de la pagina" onClick={scrollUp}>
           {" "}
-          ⇪ <span>Subir</span>
+          🠹 <span>Subir</span>
         </Button>
       )}
     </>

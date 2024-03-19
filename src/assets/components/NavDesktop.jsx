@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import DropdownButton from './DropdownButton';
+import DropdownButton from './ui/DropdownButton';
 import RadioButton from './ui/RadioButton';
 
 const ButtonContainer = styled.div`
