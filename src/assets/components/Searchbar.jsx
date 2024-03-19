@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import searchIcon from "../images/search.svg";
 
-const SearchBar = styled.input`
+const Input = styled.input`
   background-color: #444;
   border: 0px;
   text-decoration: none;
@@ -11,8 +11,7 @@ const SearchBar = styled.input`
   padding-left: 35px;
   color: #ffffff;
   font-size: 15px;
-  max-width: 30em;
-  bottom: -45px;
+  width: 100%;
   border: 2px solid #333;
   &::placeholder {
     color: #c4c3c3;
@@ -28,22 +27,22 @@ const SearchIcon = styled.img`
   pointer-events: none;
   left: 11px;
 `;
+
 const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  padding-top: 50px;
-  width: max-content;
-`;
+width: 400px;
+`
 
-export default function Searchbar() {
+
+export default function SearchBar({ setQuery }) {
   return (
     <>
       <SearchContainer>
         <SearchIcon src={searchIcon} alt="" />
-        <SearchBar type="text" placeholder="Buscar" />
+        <Input onChange={(e)=> setQuery(e.target.value)} type="text" placeholder="Buscar" />
       </SearchContainer>
     </>
-  );
-}
+  )}

@@ -1,51 +1,43 @@
-import React from "react";
-
-import HeaderUi from "../components/HeaderUi";
-import {
-  Tapas,
-  principales,
-  burguers,
-  tragos,
-  postresCafeteria,
-  cervezas,
-  vinosChampagne,
-  promos,
-  pizzas,
-  menuSinTACC,
-  aguasGaseosas,
-} from "../../data";
-import ScrollUpButton from "../components/ScrollUpButton";
-import Items from "../components/Items";
+import React, { useState } from "react";
 import styled from "styled-components";
+import Header from "../components/Header";
+import ScrollUpButton from "../components/ScrollUpButton";
+import NavMobile from "../components/NavMobile";
+import { data } from "../../data";
+import Items from "../components/Items";
+import useUnique from "../hooks/useUnique";
+import { useEffect } from "react";
 
 
-const ItemsWrapper = styled.div`
-  display: grid;
-  width: 100%;
-  flex-wrap: wrap;
-
-  background-color: #333;
-  height: 100%;
-`;
+const HomeWrapper = styled.div`
+display: flex;
+position: relative;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+width: 100%;
+padding-bottom: 2em;
+`
 
 export default function Home() {
+  const [query, setQuery] = useState('')
+  const [selectCategory, setSelectCategory] = useState('Todos')
+
+  const catArr = ['Tapas', 'Principales', 'Tragos', 'Postres y Cafetería', 'Bebidas', 'Cervezas', 'Vinos y Champagne', 'Promociones', 'Pizzas', 'SinTacc', 'Aguas y Gaseosas', 'Hamburguesas']
   return (
     <>
-      <HeaderUi />
-      <ItemsWrapper>
-        <Items objects={promos} title={"promos"} />
-        <Items objects={Tapas} title={"Tapas"} />
-        <Items objects={principales} title={"Principales"} />
-        <Items objects={pizzas} title={"Pizzas"} />
-        <Items objects={burguers} title={"Burguers"} />
-        <Items objects={aguasGaseosas} title={"aguas y Gaseosas"} />
-        <Items objects={tragos} title={"tragos"} />
-        <Items objects={cervezas} title={"cervezas"} />
-        <Items objects={vinosChampagne} title={"vinos y Champagne"} />
-        <Items objects={postresCafeteria} title={"postres y Cafeteria"} />
-        <Items objects={menuSinTACC} title={"Sin Tacc"} />
-      </ItemsWrapper>
-      <ScrollUpButton />
+      <HomeWrapper>
+        <Header setQuery={setQuery} setSelectCategory={setSelectCategory} />
+        <NavMobile />
+
+<Items searchItem={query} category={selectCategory} data={data} />
+
+     
+
+
+        <ScrollUpButton />
+
+      </HomeWrapper>
     </>
   );
 }

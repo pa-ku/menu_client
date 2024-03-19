@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Searchbar from "./Searchbar";
-import DropdownButton from "./DropdownButton";
+import NavDesktop from "./NavDesktop";
+import SearchBar from "./SearchBar";
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -13,7 +13,6 @@ const HeaderContainer = styled.header`
   justify-content: center;
   flex-direction: column;
   position: relative;
-  z-index: 1;
   border-bottom: 2px solid #333;
 `;
 
@@ -23,6 +22,13 @@ const TitleCtn = styled.div`
   justify-content: center;
   flex-direction: column;
   padding: 3em;
+  & * {
+      font-family: "Lobster Two", sans-serif;
+font-weight:200;
+font-style: italic;
+  }
+opacity: 0;
+animation: opacity 1s forwards;
 `;
 
 const Title = styled.h1`
@@ -31,12 +37,10 @@ const Title = styled.h1`
   margin: 0px;
   padding: 0px;
   height: 110px;
-  font-family: "Style Script", cursive;
 `;
 const Subtitle = styled.h2`
   color: #fff;
   font-size: 45px;
-  font-family: "Style Script", cursive;
 `;
 
 const TitleLine = styled.div`
@@ -46,38 +50,24 @@ const TitleLine = styled.div`
   background-color: #fff;
 `;
 
-const ButtonContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2em;
-  z-index: 10;
-
-  @media (max-width: 700px) {
-    display: none;
-  }
-`;
-const Button = styled.a`
-  color: #a9acb4;
-  text-decoration: none;
-  font-weight: 800;
-  text-transform: uppercase;
-  &:hover {
-    color: #fff;
-  }
-`;
-
 const SearchBarContainer = styled.div`
   position: absolute;
-  bottom: 20px;
-
+width: 400px;
   height: 10px;
+bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+ 
+@media(max-width:700px){
+  width: 100%;
+padding-inline: 10px;
+}
 `;
-
-export default function HeaderUi() {
+export default function Header({ setQuery,setSelectCategory }) {
   return (
     <HeaderContainer>
       <TitleCtn>
@@ -85,18 +75,9 @@ export default function HeaderUi() {
         <TitleLine></TitleLine>
         <Subtitle>Rooftop Bar</Subtitle>
       </TitleCtn>
-      <ButtonContainer>
-        <Button href="">Tapas</Button>
-        <Button href="">Principales</Button>
-        <Button href="">Pizzas</Button>
-        <DropdownButton>Bebidas</DropdownButton>
-        {/* Bebidas/aguas/cervezas/tragos/vinos y champagne */}
-
-        <Button href="">Postres y cafeteria</Button>
-        <Button href="">SIN T.A.C.C</Button>
-      </ButtonContainer>
+      <NavDesktop setSelectCategory={setSelectCategory} />
       <SearchBarContainer>
-        <Searchbar />
+        <SearchBar setQuery={setQuery} />
       </SearchBarContainer>
     </HeaderContainer>
   );

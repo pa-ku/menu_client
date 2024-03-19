@@ -1,18 +1,30 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+
+const DropdownWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+`;
+
 const MainButton = styled.button`
   color: #a9acb4;
+  
   text-decoration: none;
   font-weight: 800;
   background-color: rgba(255, 255, 255, 0);
   cursor: pointer;
   border: none;
-  font-size: 18px;
   text-transform: uppercase;
   position: relative;
   display: flex;
-
+  font-size: 18px;
+  font-weight: 600;
+  
   &:hover {
     color: #fff;
   }
@@ -45,27 +57,22 @@ opacity: 0;
 
 const MenuButton = styled.button`
   color: #444;
+  
   width: 100%;
   height: 100%;
-
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 600;
   background-color: rgba(255, 255, 255, 0);
   cursor: pointer;
   border: none;
   font-size: 16px;
   text-transform: uppercase;
   &:hover {
-    color: #1d7894;
+    color: #38a1c2;
   }
 `;
 
-const DropdownWrapper = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+
 
 export default function DropdownButton({ children }) {
   const [open, setOpen] = useState(false);
