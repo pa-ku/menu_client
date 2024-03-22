@@ -16,7 +16,6 @@ const Radio = styled.input`
             color: #222;
             text-align: center;
             cursor: pointer;
-            font-size: 20px;
             border-block: 2px solid rgba(255, 255, 255, 0);
             &:checked{
                 color: #fff;
@@ -28,6 +27,7 @@ const Radio = styled.input`
  }
  &:checked{
    border-bottom: 2px solid #1ec3a8;
+   background-color:#004c3e ;
  }
 `
 

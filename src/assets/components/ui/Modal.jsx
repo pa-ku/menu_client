@@ -24,9 +24,7 @@ export default function Modal({ children, $modalIsOpen }) {
     return (
         <>
             <ModalStyle $modalIsOpen={$modalIsOpen}>
-
                 {children}
-
             </ModalStyle>
         </>
     )

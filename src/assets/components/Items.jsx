@@ -1,26 +1,37 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Modal from "./ui/Modal";
 import Input from "./ui/Input";
 import Title from "./ui/Title";
 import Text from "./ui/Text";
 import Button from "./ui/Button";
+import Modal from "./ui/Modal";
+import DeleteModal from "./DeleteModal";
+import EditModal from "./EditModal";
 
 const ItemsWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
   flex-direction: column;
-opacity: 0;
-animation: 1s opacity forwards;
-min-height: 700px;
+  opacity: 0;
+  animation: 1s opacity forwards;
+width: 600px;
 @keyframes opacity {
   to{
     opacity: 1;
   }
 }
+@media(max-width:700px){
+width: 100%;
+}
 `;
-
+const ItemsContainer = styled.div`
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+`;
 const ItemCtn = styled.div`
   width: 100%;
   max-width: 40em;
@@ -28,15 +39,12 @@ const ItemCtn = styled.div`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
+  background-color: #444;
+  padding: 15px;
+  border-radius:9px;
 `;
 
-const ItemsContainer = styled.div`
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  gap: 1.5em;
-  width: 100%;
-`;
+
 
 const ModalButtonCtn = styled.div`
 width: 100%;
@@ -152,81 +160,46 @@ export default function Items({ data, category, filter, editMode, searchItem }) 
     <>
       <ItemsWrapper >
         <Title>{category}</Title>
-
         <RenderItems actualData={actualData} handleDelete={handleDelete} handleEdit={handleEdit} editMode={editMode} />
-
         <DeleteModal elementEdited={elementEdited} deleteModal={deleteModal} selectedItem={selectedItem} confirmDelete={confirmDelete} cancelDelete={cancelDelete} />
-
         <EditModal confirmEdit={confirmEdit} cancelEdit={cancelEdit} selectedItem={selectedItem} elementEdited={elementEdited} editModal={editModal} setElementEdited={setElementEdited} />
-
       </ItemsWrapper >
     </>
   );
 }
 
 
-export function DeleteModal({ elementEdited, deleteModal, selectedItem, confirmDelete, cancelDelete }) {
-  return (
-    <>
-      {selectedItem && elementEdited && <Modal $modalIsOpen={deleteModal}>
-        <Text>{selectedItem.nombre}</Text>
-        <Text $description>Estas seguro de eliminar este producto?</Text>
-        <ModalButtonCtn>
-          <Button $modal $altButton $red onClick={confirmDelete}>ELIMINAR</Button>
-          <Button $modal $altButton $blue onClick={cancelDelete}>CANCELAR</Button>
-        </ModalButtonCtn>
-      </Modal>}
-    </>
-  )
-}
-
-export function EditModal({ selectedItem, elementEdited, editModal, setElementEdited, cancelEdit, confirmEdit }) {
-  return (
-    <>
-      {selectedItem && elementEdited && (<>
-        <Modal $modalIsOpen={editModal}>
-          <Input onChange={(e) => setElementEdited(prev => ({ ...prev, nombre: e.target.value }))} value={elementEdited.nombre || ''} />
-
-          <Input onChange={(e) => setElementEdited(prev => ({ ...prev, desc: e.target.value }))} rows={'6'} value={elementEdited.desc || ''} />
-
-          <Input onChange={(e) => setElementEdited(prev => ({ ...prev, precio: e.target.value }))} value={elementEdited.precio || ''} type={'number'} />
-
-          <ModalButtonCtn>
-            <Button $modal $altButton $red onClick={confirmEdit}>MODIFICAR</Button>
-            <Button $modal $altButton $blue onClick={cancelEdit}>CANCELAR</Button>
-          </ModalButtonCtn>
-        </Modal >
-      </>)}
-    </>
-  )
-}
-
 
 export function RenderItems({ actualData, handleEdit, handleDelete, editMode }) {
   return (
     <>
       <ItemsContainer>
-
         {actualData && actualData.map((item, index) => (
           <React.Fragment key={item.nombre}>
             <ItemCtn>
-              <div>
+              <ItemFirstSectionCtn>
                 {editMode &&
                   <div>
                     <Button $altButton $blue onClick={() => handleEdit(index)}>EDITAR</Button>
                     <Button $altButton $red onClick={() => handleDelete(index)}>ELIMINAR</Button>
                   </div>}
-
                 <Text>{item.nombre} </Text>
                 <Text $description>{item.descripcion && item.descripcion} </Text>
-              </div>
+              </ItemFirstSectionCtn>
 
               <Text $price>${item.precio}</Text>
             </ItemCtn >
           </React.Fragment>
-
         ))}
       </ItemsContainer>
+
+   
     </>
   )
 }
+
+
+const ItemFirstSectionCtn = styled.div`
+
+`
+

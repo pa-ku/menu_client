@@ -46,12 +46,10 @@ const Option = styled.option`
 `
 export default function Products() {
     const catArr = ['Tapas', 'Principales', 'Tragos', 'Postres y Cafetería', 'Bebidas', 'Cervezas', 'Vinos y Champagne', 'Promociones', 'Pizzas', 'SinTacc', 'Aguas y Gaseosas', 'Hamburguesas']
-
     return (
         <>
             <Wrapper>
                 <dir>
-
                     <Button>EDITAR PRODUCTOS</Button>
                     <Button>MODIFICAR PRECIOS</Button>
                     <Button>AGREGAR PRODUCTO</Button>

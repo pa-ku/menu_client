@@ -30,19 +30,23 @@ font-weight:200;
 font-style: italic;
   }
 opacity: 0;
-animation: opacity 1s forwards;
+animation: showHeader 1s forwards;
+@keyframes showHeader {
+  to{
+    opacity: 1;
+  }
+}
 `;
 
 const Title = styled.h1`
   color: #fff;
-  font-size: 90px;
+  font-size: 80px;
   margin: 0px;
   padding: 0px;
-  height: 110px;
 `;
 const Subtitle = styled.h2`
   color: #fff;
-  font-size: 45px;
+  font-size: 40px;
 `;
 
 const TitleLine = styled.div`

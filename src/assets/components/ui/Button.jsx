@@ -36,7 +36,7 @@ text-decoration: none;
 `
 
 const AltButton = styled.button`
-background-color: #333;
+background-color: rgba(51, 51, 51, 0);
 border: 0px;
 color:#00b2da;
 cursor: pointer;
@@ -44,7 +44,7 @@ transition: 200ms;
 font-size: 16px;
 margin: 0px;
 
-${props => props.$modal && ' padding: 10px 27px;border-radius: 8px; text-transform: uppercase;'}
+${props => props.$modal && 'background-color: #333; padding: 10px 27px;border-radius: 8px; text-transform: uppercase;'}
 
 ${props => props.$red && 'color:#ff8383;'} 
 ${props => props.$blue && 'color:#27d7ff;'}

@@ -8,23 +8,17 @@ const DropdownWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-
 `;
 
 const MainButton = styled.button`
   color: #a9acb4;
-  
   text-decoration: none;
-  font-weight: 800;
   background-color: rgba(255, 255, 255, 0);
   cursor: pointer;
   border: none;
   text-transform: uppercase;
   position: relative;
   display: flex;
-  font-size: 18px;
-  font-weight: 600;
-  
   &:hover {
     color: #fff;
   }
@@ -32,9 +26,9 @@ const MainButton = styled.button`
 
 const MenuContainer = styled.div`
   position: absolute;
-  top: 40px;
+  top: 30px;
   border-radius: 8px;
-  background-color: #e3e3e3;
+  background-color: #111;
   width: 200px;
   padding-block: 1em;
   height: max-content;
@@ -56,41 +50,41 @@ opacity: 0;
 `;
 
 const MenuButton = styled.button`
-  color: #444;
-  
+  color: #999;
   width: 100%;
   height: 100%;
   text-decoration: none;
-  font-weight: 600;
   background-color: rgba(255, 255, 255, 0);
   cursor: pointer;
   border: none;
-  font-size: 16px;
   text-transform: uppercase;
   &:hover {
     color: #38a1c2;
   }
 `;
 
-
-
-export default function DropdownButton({ children }) {
+export default function DropdownButton({ children, setSelectCategory }) {
   const [open, setOpen] = useState(false);
+
+  function handleModal() {
+    open ? setOpen(false) : setOpen(true)
+  }
 
   return (
     <>
-      <DropdownWrapper>
-        <MainButton onClick={() => (open ? setOpen(false) : setOpen(true))}>
+      <DropdownWrapper onClick={handleModal}>
+        <MainButton >
           {children}
         </MainButton>
         {open && (
           <MenuContainer>
-            <MenuButton>CERveza</MenuButton>
-            <MenuButton>vino y champagne</MenuButton>
-            <MenuButton>aguas</MenuButton>
-            <MenuButton>tragos</MenuButton>
+            <MenuButton onClick={() => setSelectCategory("Cervezas")}>Cervezas</MenuButton>
+            <MenuButton onClick={() => setSelectCategory("Vinos y Champagne")}>vino y champagne</MenuButton>
+            <MenuButton onClick={() => setSelectCategory("Aguas y Gaseosas")}>Aguas y Gaseosas</MenuButton>
+            <MenuButton onClick={() => setSelectCategory("Tragos")}>tragos</MenuButton>
           </MenuContainer>
         )}
+
       </DropdownWrapper>
     </>
   );
