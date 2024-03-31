@@ -4,59 +4,41 @@
 margin:0; 
 }
 body {
-
-  
   margin: 0;
   padding: 0;
-  background-color: #333;
+  background-color: var(--lightbrown-300);
 }
 
-header {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-}
+:root{
+  --brown-100:#ffaf69;
+  --brown-200:#e18737;
+  --brown-300:#da7217;
+  --brown-400:#b15709;
+  --brown-500:#7a3900;
+  --brown-600:#5d2b00;
+  --brown-700:#4b2300;
+  --brown-800:#442000;
+  --brown-900:#311700;
+  --lightbrown-100:#fff8f1;
+  --lightbrown-200:#e4d4c3;
+  --lightbrown-300:#d5c5b4;
+  --lightbrown-400:#504336;
+  --lightbrown-500:#3e3227;
+  --lightbrown-600:#3c2d1f;
+  --lightbrown-700:#473626;
 
-.menu-category {
-  margin: 20px;
-}
-
-h2 {
-  color: #333;
-}
-
-.menu-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.item-name {
-  flex: 1;
-}
-
-.item-price {
-  min-width: 80px;
-  text-align: right;
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #333;
-  color: #fff;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-background-color: #333;
-width: 17px;
+background-color: #3c2d1f;
+width: 15px;
 }
 ::-webkit-scrollbar-thumb {
-background-color: #aaaaaa;
-border: 3.2px solid #333;
+background-color: #b15709;
+border: 3.2px solid #3c2d1f;
+border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-background-color: #777;
+background-color: #b15709;
 }
